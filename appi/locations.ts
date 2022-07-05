@@ -17,3 +17,5 @@ const getLocations = async () => {
 
   return mapToArray(data)
 }
+
+
