@@ -16,3 +16,7 @@ const loadLocations = async () => {
     })
     
 }
+
+const loadJobs =async () => {
+    const jobs = await getJobs ()
+}

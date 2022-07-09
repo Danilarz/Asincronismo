@@ -35,50 +35,27 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-var formUsers = document.getElementById('form-add-users');
-var tableUsers = document.getElementById('table-users');
-var createUser = function (e) { return __awaiter(_this, void 0, void 0, function () {
-    var formU, user;
+var formJobs = document.getElementById("job-form");
+var createJob = function (e) { return __awaiter(_this, void 0, void 0, function () {
+    var formJ, job;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 e.preventDefault();
-                formU = e.target;
-                user = {
-                    name: formU.name.value,
-                    email: formU.email.value,
-                    pass: formU.pass.value
+                formJ = e.target;
+                job = {
+                    name: formJ.name.value,
+                    description: formJ.description.value,
+                    location: formJ.locations.value,
+                    category: formJ.categories.value,
+                    seniority: formJ.seniorities.value
                 };
-                return [4 /*yield*/, addUser(user)];
+                return [4 /*yield*/, addJob(job)];
             case 1:
                 _a.sent();
-                loadUsers();
+                loadJobs();
                 return [2 /*return*/];
         }
     });
 }); };
-formUsers.addEventListener('submit', createUser);
-var loadUsers = function () { return __awaiter(_this, void 0, void 0, function () {
-    var users, tbody;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, getUsers()];
-            case 1:
-                users = _a.sent();
-                tbody = tableUsers.querySelector('tbody');
-                tbody.innerHTML = '';
-                users.forEach(function (us) {
-                    var tr = document.createElement('tr');
-                    var tdName = document.createElement('td');
-                    var tdEmail = document.createElement('td');
-                    var txtName = document.createTextNode(us.name);
-                    var txtEmail = document.createTextNode(us.email);
-                    var tdPass = document.createElement('td');
-                    var textPass = document.createTextNode(us.pass);
-                    tr.appendChild(tdName);
-                    t;
-                });
-                return [2 /*return*/];
-        }
-    });
-}); };
+formJobs.addEventListener('submit', createJob);

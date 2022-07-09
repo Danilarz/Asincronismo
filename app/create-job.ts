@@ -1,39 +1,25 @@
-const formUsers = document.getElementById('form-add-users');
-const tableUsers = document.getElementById('table-users');
+const formJobs = document.getElementById("job-form");
 
-const createUser = async (e) => {
+const createJob = async (e) => {
     e.preventDefault()
-    const formU = e.target
+    const formJ = e.target
 
-    const user = {
-        name: formU.name.value, 
-        email: formU.email.value,
-        pass: formU.pass.value
+    const job = {
+        name: formJ.name.value, 
+        description: formJ.description.value,
+        location: formJ.locations.value,
+        category: formJ.categories.value,
+        seniority: formJ.seniorities.value
     }
 
-    await addUser(user)
-    loadUsers()
+    await addJob(job)
+    loadJobs()
     
 }
 
-formUsers.addEventListener('submit', createUser)
+formJobs.addEventListener('submit', createJob)
 
 
-const loadUsers = async () => {
-    const users = await getUsers()
 
-    const tbody = tableUsers.querySelector('tbody')
 
-    tbody.innerHTML = '';
 
-    users.forEach(us => {
-        const tr = document.createElement('tr')
-        const tdName = document.createElement('td')
-        const tdEmail = document.createElement('td')
-        const txtName = document.createTextNode(us.name)
-        const txtEmail = document.createTextNode(us.email)
-        const tdPass = document.createElement('td')
-        const textPass = document.createTextNode(us.pass);
-
-        tr.appendChild(tdName)
-        t
