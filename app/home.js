@@ -45,14 +45,14 @@ var createFilter = function (e) { return __awaiter(_this, void 0, void 0, functi
                 e.preventDefault();
                 formF = e.target;
                 filter = {
-                    location: formF.locations.value,
-                    seniority: formF.seniorities.value,
-                    category: formF.categories.value
+                    location: formF.location.value,
+                    seniority: formF.seniority.value,
+                    category: formF.category.value
                 };
-                return [4 /*yield*/, addFilter(filter)];
+                return [4 /*yield*/, addJob(filter)];
             case 1:
                 _a.sent();
-                loadFilters();
+                loadJobs();
                 return [2 /*return*/];
         }
     });
@@ -121,14 +121,62 @@ var loadCategories = function () { return __awaiter(_this, void 0, void 0, funct
     });
 }); };
 loadCategories();
+//Cards de Jobs en home
+var jobsContainer = document.getElementById('jobs-container');
 var loadJobs = function () { return __awaiter(_this, void 0, void 0, function () {
-    var jobs;
+    var jobs, cardJobs;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, getJobs()];
             case 1:
                 jobs = _a.sent();
+                cardJobs = jobsContainer.querySelector('section');
+                section.innerHTML = '';
+                jobs.forEach(function (job) {
+                    var articleJob = document.createElement('article');
+                    articleJob.classList.add('col');
+                    var cardJob = document.createElement('div');
+                    cardJob.classList.add('card-body');
+                    var titleJob = document.createElement('h5');
+                    titleJob.classList.add('card-title');
+                    var txtTitle = document.createTextNode(job.name);
+                    var description = document.createElement('p');
+                    description.classList.add('card-text');
+                    var txtDescription = document.createTextNode(job.description);
+                    var filterLocation = document.createElement('span');
+                    filterLocation.className = 'badge text-bg-info';
+                    var txtLocation = document.createTextNode(job.location);
+                    var filterSeniority = document.createElement('span');
+                    filterSeniority.className = 'badge text-bg-info';
+                    var txtSeniority = document.createTextNode(job.seniority);
+                    var filterCategory = document.createElement('span');
+                    filterCategory.className = 'badge text-bg-info';
+                    var txtCategory = document.createTextNode(job.category);
+                    var btnDetails = document.createElement('button');
+                    var txtBtnDetails = document.createTextNode('See Details');
+                    btnDetails.className = 'btn btn-primary mt-3';
+                    var linkDetails = document.createElement('a');
+                    linkDetails.setAttribute('href', '#');
+                    linkDetails.classList.add('nav-link');
+                    titleJob.appendChild(txtTitle);
+                    description.appendChild(txtDescription);
+                    filterLocation.appendChild(txtLocation);
+                    filterSeniority.appendChild(txtSeniority);
+                    filterCategory.appendChild(txtCategory);
+                    btnDetails.appendChild(txtBtnDetails);
+                    btnDetails.appendChild(linkDetails);
+                    cardJob.appendChild(titleJob);
+                    cardJob.appendChild(description);
+                    cardJob.appendChild(filterLocation);
+                    cardJob.appendChild(filterSeniority);
+                    cardJob.appendChild(filterCategory);
+                    cardJob.appendChild(btnDetails);
+                    articleJob.appendChild(cardJob);
+                    section.appendChild(articleJob);
+                    btnDetails.addEventListener('click', getJob);
+                });
                 return [2 /*return*/];
         }
     });
 }); };
+loadJobs();

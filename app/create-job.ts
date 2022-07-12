@@ -7,9 +7,9 @@ const createJob = async (e) => {
     const job = {
         name: formJ.name.value, 
         description: formJ.description.value,
-        location: formJ.locations.value,
-        category: formJ.categories.value,
-        seniority: formJ.seniorities.value
+        location: formJ.location.value,
+        category: formJ.category.value,
+        seniority: formJ.seniority.value
     }
 
     await addJob(job)

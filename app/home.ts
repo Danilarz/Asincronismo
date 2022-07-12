@@ -5,13 +5,13 @@ const createFilter = async (e) => {
     const formF = e.target
 
     const filter = {
-        location: formF.locations.value, 
-        seniority: formF.seniorities.value,
-        category: formF.categories.value
+        location: formF.location.value, 
+        seniority: formF.seniority.value,
+        category: formF.category.value
     }
 
-    await addFilter(filter)
-    loadFilters()
+    await addJob(filter)
+    loadJobs()
     
 }
 
@@ -81,10 +81,76 @@ const loadCategories = async () => {
 loadCategories()
 
 
+//Cards de Jobs en home
+
+const jobsContainer = document.getElementById('jobs-container');
 
 const loadJobs =async () => {
     const jobs = await getJobs ()
+
+
+const cardJobs = jobsContainer.querySelector('section')
+
+    section.innerHTML = '';
+
+    jobs.forEach(job => {
+
+        const articleJob = document.createElement('article');
+        articleJob.classList.add('col');
+        const cardJob = document.createElement('div');
+        cardJob.classList.add('card-body');
+        const titleJob = document.createElement('h5');
+        titleJob.classList.add('card-title');
+        const txtTitle = document.createTextNode(job.name);
+        const description = document.createElement('p');
+        description.classList.add('card-text');
+        const txtDescription = document.createTextNode(job.description);
+        const filterLocation = document.createElement('span');
+        filterLocation.className = 'badge text-bg-info';
+        const txtLocation = document.createTextNode(job.location);
+        const filterSeniority = document.createElement('span');
+        filterSeniority.className = 'badge text-bg-info';
+        const txtSeniority = document.createTextNode(job.seniority);
+        const filterCategory = document.createElement('span');
+        filterCategory.className = 'badge text-bg-info';
+        const txtCategory = document.createTextNode(job.category);
+        
+        const btnDetails = document.createElement('button')
+        const txtBtnDetails = document.createTextNode('See Details')
+        btnDetails.className = 'btn btn-primary mt-3'
+
+        const linkDetails = document.createElement('a');
+        linkDetails.setAttribute('href', '#');
+        linkDetails.classList.add('nav-link');
+
+        titleJob.appendChild(txtTitle)
+        description.appendChild(txtDescription)
+        filterLocation.appendChild(txtLocation)
+        filterSeniority.appendChild(txtSeniority)
+        filterCategory.appendChild(txtCategory)
+        btnDetails.appendChild(txtBtnDetails)
+        btnDetails.appendChild(linkDetails)
+        cardJob.appendChild(titleJob)
+        cardJob.appendChild(description)
+        cardJob.appendChild(filterLocation)
+        cardJob.appendChild(filterSeniority)
+        cardJob.appendChild(filterCategory)
+        cardJob.appendChild(btnDetails)
+        articleJob.appendChild(cardJob)
+        section.appendChild(articleJob)
+
+        btnDetails.addEventListener('click', getJob)
+
+    })
+
 }
+loadJobs()
+
+
+
+
+
+
 
 
 

@@ -46,9 +46,9 @@ var createJob = function (e) { return __awaiter(_this, void 0, void 0, function 
                 job = {
                     name: formJ.name.value,
                     description: formJ.description.value,
-                    location: formJ.locations.value,
-                    category: formJ.categories.value,
-                    seniority: formJ.seniorities.value
+                    location: formJ.location.value,
+                    category: formJ.category.value,
+                    seniority: formJ.seniority.value
                 };
                 return [4 /*yield*/, addJob(job)];
             case 1:
