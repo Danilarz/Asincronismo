@@ -86,7 +86,7 @@ var editJob = function (data) { return __awaiter(_this, void 0, void 0, function
             case 0:
                 param = new URLSearchParams(window.location.search);
                 id = param.get("id");
-                return [4 /*yield*/, fetch("https://tp--asincronismo-default-rtdb.firebaseio.com/".concat(id, ".json"), {
+                return [4 /*yield*/, fetch("https://tp--asincronismo-default-rtdb.firebaseio.com/jobs/".concat(id, ".json"), {
                         method: 'PATCH',
                         headers: {
                             'Content-Type': 'application/json'
@@ -102,12 +102,26 @@ var editJob = function (data) { return __awaiter(_this, void 0, void 0, function
 var deleteJob = function (id) { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("https://tp--asincronismo-default-rtdb.firebaseio.com/".concat(id, ".json"), {
+            case 0: return [4 /*yield*/, fetch("https://tp--asincronismo-default-rtdb.firebaseio.com/jobs/".concat(id, ".json"), {
                     method: 'DELETE'
                 })];
             case 1:
                 _a.sent();
                 return [2 /*return*/];
+        }
+    });
+}); };
+var getJob = function (id) { return __awaiter(_this, void 0, void 0, function () {
+    var jobRequest, job;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, fetch("https://tp--asincronismo-default-rtdb.firebaseio.com/jobs/".concat(id, ".json"))];
+            case 1:
+                jobRequest = _a.sent();
+                return [4 /*yield*/, jobRequest.json()];
+            case 2:
+                job = _a.sent();
+                return [2 /*return*/, job];
         }
     });
 }); };
