@@ -122,16 +122,15 @@ var loadCategories = function () { return __awaiter(_this, void 0, void 0, funct
 }); };
 loadCategories();
 //Cards de Jobs en home
-var jobsContainer = document.getElementById('jobs-container');
+var jobsContainer = document.getElementById('job-card');
 var loadJobs = function () { return __awaiter(_this, void 0, void 0, function () {
-    var jobs, cardJobs;
+    var jobs;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, getJobs()];
             case 1:
                 jobs = _a.sent();
-                cardJobs = jobsContainer.querySelector('section');
-                section.innerHTML = '';
+                jobsContainer.innerHTML = '';
                 jobs.forEach(function (job) {
                     var articleJob = document.createElement('article');
                     articleJob.classList.add('col');

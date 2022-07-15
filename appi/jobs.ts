@@ -7,7 +7,9 @@ const addJob =async (job) => {
         body: JSON.stringify(job)
     }
     await fetch ('https://tp--asincronismo-default-rtdb.firebaseio.com/jobs.json', options)
+    window.location.href = "index.html";
 }
+
 
 const getJobs =async () => {
     const response = await fetch ('https://tp--asincronismo-default-rtdb.firebaseio.com/jobs.json')
