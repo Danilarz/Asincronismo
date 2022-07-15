@@ -86,12 +86,9 @@ loadCategories()
 const jobsContainer = document.getElementById('jobs-container');
 
 const loadJobs =async () => {
-    const jobs = await getJobs ()
+    const jobs = await getJobs()
 
-
-const cardJobs = jobsContainer.querySelector('section')
-
-    section.innerHTML = '';
+    jobsContainer.innerHTML = '';
 
     jobs.forEach(job => {
 
@@ -137,7 +134,7 @@ const cardJobs = jobsContainer.querySelector('section')
         cardJob.appendChild(filterCategory)
         cardJob.appendChild(btnDetails)
         articleJob.appendChild(cardJob)
-        section.appendChild(articleJob)
+        jobsContainer.appendChild(articleJob)
 
         btnDetails.addEventListener('click', getJob)
 
