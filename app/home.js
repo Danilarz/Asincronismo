@@ -122,7 +122,7 @@ var loadCategories = function () { return __awaiter(_this, void 0, void 0, funct
 }); };
 loadCategories();
 //Cards de Jobs en home
-var jobsContainer = document.getElementById('job-card');
+var jobsContainer = document.getElementById('jobs-container');
 var loadJobs = function () { return __awaiter(_this, void 0, void 0, function () {
     var jobs;
     return __generator(this, function (_a) {
@@ -134,6 +134,8 @@ var loadJobs = function () { return __awaiter(_this, void 0, void 0, function ()
                 jobs.forEach(function (job) {
                     var articleJob = document.createElement('article');
                     articleJob.classList.add('col');
+                    var contCard = document.createElement('div');
+                    contCard.classList.add('card');
                     var cardJob = document.createElement('div');
                     cardJob.classList.add('card-body');
                     var titleJob = document.createElement('h5');
@@ -143,35 +145,36 @@ var loadJobs = function () { return __awaiter(_this, void 0, void 0, function ()
                     description.classList.add('card-text');
                     var txtDescription = document.createTextNode(job.description);
                     var filterLocation = document.createElement('span');
-                    filterLocation.className = 'badge text-bg-info';
+                    filterLocation.className = 'badge text-bg-info m-1';
                     var txtLocation = document.createTextNode(job.location);
                     var filterSeniority = document.createElement('span');
-                    filterSeniority.className = 'badge text-bg-info';
+                    filterSeniority.className = 'badge text-bg-info m-1';
                     var txtSeniority = document.createTextNode(job.seniority);
                     var filterCategory = document.createElement('span');
-                    filterCategory.className = 'badge text-bg-info';
+                    filterCategory.className = 'badge text-bg-info m-1';
                     var txtCategory = document.createTextNode(job.category);
-                    var btnDetails = document.createElement('button');
+                    var contBtn = document.createElement('div');
+                    contBtn.className = 'd-grid gap-2 d-md-flex justify-content-md-start';
+                    var btnDetails = document.createElement('a');
                     var txtBtnDetails = document.createTextNode('See Details');
-                    btnDetails.className = 'btn btn-primary mt-3';
-                    var linkDetails = document.createElement('a');
-                    linkDetails.setAttribute('href', '#');
-                    linkDetails.classList.add('nav-link');
+                    btnDetails.setAttribute('href', "detail.html?job-id=".concat(job.id));
+                    btnDetails.className = 'nav-link btn btn-primary mt-3 text-white p-2';
                     titleJob.appendChild(txtTitle);
                     description.appendChild(txtDescription);
                     filterLocation.appendChild(txtLocation);
                     filterSeniority.appendChild(txtSeniority);
                     filterCategory.appendChild(txtCategory);
                     btnDetails.appendChild(txtBtnDetails);
-                    btnDetails.appendChild(linkDetails);
+                    contBtn.appendChild(btnDetails);
                     cardJob.appendChild(titleJob);
                     cardJob.appendChild(description);
                     cardJob.appendChild(filterLocation);
                     cardJob.appendChild(filterSeniority);
                     cardJob.appendChild(filterCategory);
-                    cardJob.appendChild(btnDetails);
-                    articleJob.appendChild(cardJob);
-                    section.appendChild(articleJob);
+                    cardJob.appendChild(contBtn);
+                    contCard.appendChild(cardJob);
+                    articleJob.appendChild(contCard);
+                    jobsContainer.appendChild(articleJob);
                     btnDetails.addEventListener('click', getJob);
                 });
                 return [2 /*return*/];
