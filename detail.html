@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>See Details</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-success bg-gradient">
+            <div class="container-fluid">
+            <a class="navbar-brand text-white" href="index.html">Careers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="jobs.html">Create Job</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </header> 
+    <main class="container">
+        <form class="container mt-4" id="filter-form">
+            <div class="row">
+                <div class="col">
+                    <select class="form-select" aria-label="Default select example" name="locations" id="locations-control">
+                        <option selected>Location</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <select class="form-select" aria-label="Default select example" name="seniorities" id="seniorities-control">
+                        <option selected>Seniority</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <select class="form-select" aria-label="Default select example" name="categories" id="categories-control">
+                        <option selected>Category</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-success">Search</button>
+                    <button type="reset" class="btn btn-outline-success">Clear</button>
+                </div>
+                
+            </div>
+        </form>
+
+        <div class="container mt-4">
+            <section  id="see-details">
+
+
+            </section>
+
+        </div>
+
+
+
+
+    <script src="./app/helpers.js"></script>
+    <script src="./appi/jobs.js"></script>
+    <script src="./app/see-details.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -15,9 +15,13 @@ const createJob = async (e) => {
     await addJob(job)
     loadJobs()
     
+    
+    
 }
 
 formJobs.addEventListener('submit', createJob)
+
+
 
 
 
