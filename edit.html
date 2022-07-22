@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-success bg-gradient">
+            <div class="container-fluid">
+            <a class="navbar-brand text-white" href="index.html">Careers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="jobs.html">Create Job</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </header> 
+    <main class="container">
+
+        <form id="edit-job-form" class="p-5 mt-4">
+            <div class="mb-3">
+                <label for="" class="form-label">Job title</label>
+                <input id="edit-name" type="text" name="name" placeholder="Job title" class="form-control form-control-sm">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Description</label>
+                <textarea id="edit-description" name="description"  cols="30" rows="3" class="form-control form-control-sm"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Tags</label>
+            
+                <input id="edit-location" type="text" name="location" placeholder="location" class="form-control form-control-sm">
+            
+                <input id="edit-seniority" type="text" name="seniority" placeholder="seniority" class="form-control form-control-sm mt-2">
+            
+                <input id="edit-category" type="text" name="category" placeholder="category" class="form-control form-control-sm mt-2">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
+        </form>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
