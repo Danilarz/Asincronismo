@@ -1,12 +1,12 @@
-const editForm = document.getElementById('edit-job-form');
+// const editForm = document.getElementById('edit-job-form');
 // const editName = document.getElementById('edit-name');
 // const editDescription= document.getElementById('edit-description');
 // const editLocation= document.getElementById('edit-location');
 // const editSeniority= document.getElementById('edit-seniority');
 // const editCategory= document.getElementById('edit-category');
 
-const params = new URLSearchParams(window.location.search);
-const idParam= params.get("id");
+const paramsUrlJob = new URLSearchParams(window.location.search);
+const idParam= paramsUrlJob.get("id");
 
 
 
@@ -21,18 +21,18 @@ const getJobInfo = () =>{
 getJobInfo();
 
 
-// formJobs.addEventListener('submit', async (e) => {
-//     e.preventDefault()
+formJobs.addEventListener('submit', async (e) => {
+    e.preventDefault()
 
 
-//     const job ={
-//         name: e.target.name.value,
-//         description: e.target.description.value,
-//         location: e.target.location.value,
-//         seniority: e.target.seniority.value,
-//         category: e.target.category.value
-//     }
+    const job ={
+        name: e.target.name.value,
+        description: e.target.description.value,
+        location: e.target.location.value,
+        seniority: e.target.seniority.value,
+        category: e.target.category.value
+    }
     
-//     await editJob(job);
+    await editJob(job);
     
-// });
+});

@@ -67,10 +67,10 @@ var seeDetail = function () {
     var btnEdit = document.createElement('a');
     var txtBtnEdit = document.createTextNode('Edit');
     btnEdit.setAttribute('href', "edit.html?job-id=".concat(job.id));
-    btnEdit.className = 'nav-link btn btn-primary mt-3 text-white p-2';
+    btnEdit.className = 'nav-link btn btn-success mt-3 text-white p-2';
     var btnDelete = document.createElement('button');
     var txtBtnDelete = document.createTextNode('Delete');
-    btnDelete.className = 'nav-link btn btn-primary mt-3 text-white p-2';
+    btnDelete.className = 'nav-link btn btn-danger mt-3 text-white p-2';
     btnDelete.addEventListener('click', function () { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {

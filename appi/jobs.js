@@ -61,6 +61,7 @@ var addJob = function (job) { return __awaiter(_this, void 0, void 0, function (
                 return [4 /*yield*/, fetch('https://tp--asincronismo-default-rtdb.firebaseio.com/jobs.json', options)];
             case 1:
                 _a.sent();
+                window.location.href = "index.html";
                 return [2 /*return*/];
         }
     });

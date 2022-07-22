@@ -6,7 +6,7 @@ const idParam = params.get('id')
 
 
 const seeDetail = () =>{
-    const job =  getJob('idParam');
+    const job = getJob('idParam');
 
     detailsContainer.innerHTML = '';
 
@@ -37,12 +37,12 @@ const seeDetail = () =>{
             const btnEdit = document.createElement('a');
             const txtBtnEdit = document.createTextNode('Edit')
             btnEdit.setAttribute('href',  `edit.html?job-id=${job.id}`)
-            btnEdit.className = 'nav-link btn btn-primary mt-3 text-white p-2';
+            btnEdit.className = 'nav-link btn btn-success mt-3 text-white p-2';
 
         
             const btnDelete = document.createElement('button');
             const txtBtnDelete = document.createTextNode('Delete')
-            btnDelete.className = 'nav-link btn btn-primary mt-3 text-white p-2';
+            btnDelete.className = 'nav-link btn btn-danger mt-3 text-white p-2';
             btnDelete.addEventListener('click', async () =>{
                 await deleteJob(job.id)
                 getJobs()
