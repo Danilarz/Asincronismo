@@ -35,81 +35,79 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
+var params = new URLSearchParams(window.location.search);
 var detailsContainer = document.getElementById('see-details');
-//card de see details-- ver función. Ver si es for in. no es for each
-var loadJob = function () { return __awaiter(_this, void 0, void 0, function () {
-    var job;
-    var _this = this;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, getJob()];
-            case 1:
-                job = _a.sent();
-                detailsContainer.innerHTML = '';
-                job.forEach(function (j) {
-                    var articleJob = document.createElement('article');
-                    articleJob.classList.add('col');
-                    var contCard = document.createElement('div');
-                    contCard.classList.add('card');
-                    var cardJob = document.createElement('div');
-                    cardJob.classList.add('card-body');
-                    var titleJob = document.createElement('h5');
-                    titleJob.classList.add('card-title');
-                    var txtTitle = document.createTextNode(j.name);
-                    var description = document.createElement('p');
-                    description.classList.add('card-text');
-                    var txtDescription = document.createTextNode(j.description);
-                    var filterLocation = document.createElement('span');
-                    filterLocation.className = 'badge text-bg-info m-1';
-                    var txtLocation = document.createTextNode(j.location);
-                    var filterSeniority = document.createElement('span');
-                    filterSeniority.className = 'badge text-bg-info m-1';
-                    var txtSeniority = document.createTextNode(j.seniority);
-                    var filterCategory = document.createElement('span');
-                    filterCategory.className = 'badge text-bg-info m-1';
-                    var txtCategory = document.createTextNode(j.category);
-                    var contBtn = document.createElement('div');
-                    contBtn.className = 'd-grid gap-2 d-md-flex justify-content-md-start';
-                    var btnEdit = document.createElement('a');
-                    var txtBtnEdit = document.createTextNode('Edit');
-                    btnEdit.setAttribute('href', "edit.html?job-id=".concat(job.id));
-                    btnEdit.className = 'nav-link btn btn-primary mt-3 text-white p-2';
-                    var btnDelete = document.createElement('button');
-                    var txtBtnDelete = document.createTextNode('Delete');
-                    btnDelete.className = 'nav-link btn btn-primary mt-3 text-white p-2';
-                    btnDelete.addEventListener('click', function () { return __awaiter(_this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4 /*yield*/, deleteJob(job.id)];
-                                case 1:
-                                    _a.sent();
-                                    loadJob(detailsContainer);
-                                    return [2 /*return*/];
-                            }
-                        });
-                    }); });
-                    titleJob.appendChild(txtTitle);
-                    description.appendChild(txtDescription);
-                    filterLocation.appendChild(txtLocation);
-                    filterSeniority.appendChild(txtSeniority);
-                    filterCategory.appendChild(txtCategory);
-                    btnEdit.appendChild(txtBtnEdit);
-                    btnDelete.appendChild(txtBtnDelete);
-                    contBtn.appendChild(btnEdit);
-                    contBtn.appendChild(btnDelete);
-                    cardJob.appendChild(titleJob);
-                    cardJob.appendChild(description);
-                    cardJob.appendChild(filterLocation);
-                    cardJob.appendChild(filterSeniority);
-                    cardJob.appendChild(filterCategory);
-                    cardJob.appendChild(contBtn);
-                    contCard.appendChild(cardJob);
-                    articleJob.appendChild(contCard);
-                    detailsContainer.appendChild(articleJob);
-                    btnEdit.addEventListener('click', editJob);
-                });
-                return [2 /*return*/];
-        }
-    });
-}); };
-loadJob();
+var idParam = params.get('id');
+var seeDetail = function () {
+    var job = getJob('idParam');
+    detailsContainer.innerHTML = '';
+    var articleJob = document.createElement('article');
+    articleJob.classList.add('col');
+    var contCard = document.createElement('div');
+    contCard.classList.add('card');
+    var cardJob = document.createElement('div');
+    cardJob.classList.add('card-body');
+    var titleJob = document.createElement('h5');
+    titleJob.classList.add('card-title');
+    var txtTitle = document.createTextNode(job.name);
+    var description = document.createElement('p');
+    description.classList.add('card-text');
+    var txtDescription = document.createTextNode(job.description);
+    var filterLocation = document.createElement('span');
+    filterLocation.className = 'badge text-bg-info m-1';
+    var txtLocation = document.createTextNode(job.location);
+    var filterSeniority = document.createElement('span');
+    filterSeniority.className = 'badge text-bg-info m-1';
+    var txtSeniority = document.createTextNode(job.seniority);
+    var filterCategory = document.createElement('span');
+    filterCategory.className = 'badge text-bg-info m-1';
+    var txtCategory = document.createTextNode(job.category);
+    var contBtn = document.createElement('div');
+    contBtn.className = 'd-grid gap-2 d-md-flex justify-content-md-start';
+    var btnEdit = document.createElement('a');
+    var txtBtnEdit = document.createTextNode('Edit');
+    btnEdit.setAttribute('href', "edit.html?job-id=".concat(job.id));
+    btnEdit.className = 'nav-link btn btn-primary mt-3 text-white p-2';
+    var btnDelete = document.createElement('button');
+    var txtBtnDelete = document.createTextNode('Delete');
+    btnDelete.className = 'nav-link btn btn-primary mt-3 text-white p-2';
+    btnDelete.addEventListener('click', function () { return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, deleteJob(job.id)];
+                case 1:
+                    _a.sent();
+                    getJobs();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    titleJob.appendChild(txtTitle);
+    description.appendChild(txtDescription);
+    filterLocation.appendChild(txtLocation);
+    filterSeniority.appendChild(txtSeniority);
+    filterCategory.appendChild(txtCategory);
+    btnEdit.appendChild(txtBtnEdit);
+    btnDelete.appendChild(txtBtnDelete);
+    contBtn.appendChild(btnEdit);
+    contBtn.appendChild(btnDelete);
+    cardJob.appendChild(titleJob);
+    cardJob.appendChild(description);
+    cardJob.appendChild(filterLocation);
+    cardJob.appendChild(filterSeniority);
+    cardJob.appendChild(filterCategory);
+    cardJob.appendChild(contBtn);
+    contCard.appendChild(cardJob);
+    articleJob.appendChild(contCard);
+    detailsContainer.appendChild(articleJob);
+    btnEdit.addEventListener('click', editJob);
+};
+seeDetail();
+// const getJobInfo = async () => {
+//     const job = await getJob(idParam);
+//     name.value = job.name;
+//     description.value = job.description;
+//     location.value = job.location;
+//     seniority.value = job.seniority;
+//     category.value = job.category;
+//     getjobInfo(); }

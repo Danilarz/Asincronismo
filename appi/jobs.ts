@@ -1,3 +1,13 @@
+type job = {
+    id: string;
+    name: string;
+    description: string;
+    location: string;
+    seniority: string;
+    category: string;
+
+}
+
 const addJob =async (job) => {
     const options = {
         method: 'POST',
@@ -18,7 +28,7 @@ const getJobs =async () => {
     
 }
 
-const editJob =async (data) => {
+const editJob =async (data:job) => {
     const param = new URLSearchParams(window.location.search);
     const id= param.get("id");
     await fetch (`https://tp--asincronismo-default-rtdb.firebaseio.com/jobs/${id}.json`,
