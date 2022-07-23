@@ -43,7 +43,7 @@ const editJob =async (data:job) => {
   
 };
 
-const deleteJob =  async (id:string) => {
+const deleteJob =  async (id) => {
     await fetch (`https://tp--asincronismo-default-rtdb.firebaseio.com/jobs/${id}.json`,
       {
         method: 'DELETE'
@@ -52,10 +52,11 @@ const deleteJob =  async (id:string) => {
       );
   };
 
-const getJob =async (id:string) => {
-    const jobRequest= await fetch (`https://tp--asincronismo-default-rtdb.firebaseio.com/jobs/${id}.json`
+const getJob = async(id) => {
+    const jobRequest = await fetch (`https://tp--asincronismo-default-rtdb.firebaseio.com/jobs/${id}.json`
     );
     const job = await jobRequest.json();
+
     return job;
     
 };

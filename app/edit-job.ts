@@ -6,12 +6,12 @@
 // const editCategory= document.getElementById('edit-category');
 
 const paramsUrlJob = new URLSearchParams(window.location.search);
-const idParam= paramsUrlJob.get("id");
+const id= paramsUrlJob.get("job-id");
 
 
 
 const getJobInfo = () =>{
-    const job = getJob(idParam);
+    const job = getJob(id);
     editName.name.value = job.name;
     editDescription.description.value = job.description;
     editLocation.location.value = job.location;
