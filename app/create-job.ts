@@ -15,6 +15,7 @@ const createJob = async (e) => {
     await addJob(job)
     loadJobs()
     
+    window.location.href = "index.html"
     
     
 }

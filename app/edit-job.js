@@ -42,9 +42,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 var paramsUrlJob = new URLSearchParams(window.location.search);
-var idParam = paramsUrlJob.get("id");
+var id = paramsUrlJob.get("job-id");
 var getJobInfo = function () {
-    var job = getJob(idParam);
+    var job = getJob(id);
     editName.name.value = job.name;
     editDescription.description.value = job.description;
     editLocation.location.value = job.location;

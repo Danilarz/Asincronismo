@@ -1,12 +1,15 @@
 
 const params = new URLSearchParams(window.location.search);
 const detailsContainer = document.getElementById('see-details');
-const idParam = params.get('id')
+const idParam = params.get('job-id')
+console.log(idParam);
 
 
 
-const seeDetail = () =>{
-    const job = getJob('idParam');
+const seeDetail = async() =>{
+    const job = await getJob(idParam);
+    
+    console.log(job);
 
     detailsContainer.innerHTML = '';
 
@@ -44,9 +47,12 @@ const seeDetail = () =>{
             const txtBtnDelete = document.createTextNode('Delete')
             btnDelete.className = 'nav-link btn btn-danger mt-3 text-white p-2';
             btnDelete.addEventListener('click', async () =>{
-                await deleteJob(job.id)
-                getJobs()
-            })
+                await deleteJob(idParam)
+                window.location.href = "index.html"
+                console.log(idParam);
+
+            
+            });
             
         
             titleJob.appendChild(txtTitle)
@@ -73,11 +79,3 @@ const seeDetail = () =>{
 }
 seeDetail();
 
-// const getJobInfo = async () => {
-//     const job = await getJob(idParam);
-//     name.value = job.name;
-//     description.value = job.description;
-//     location.value = job.location;
-//     seniority.value = job.seniority;
-//     category.value = job.category;
-//     getjobInfo(); }
